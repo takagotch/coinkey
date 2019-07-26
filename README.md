@@ -5,13 +5,12 @@ https://github.com/cryptocoinjs/coinkey
 ```js
 var CoinKey = require('coinkey')
 var bitcoinKeys = []
-var bitcoinKeys = []
 for (var i = 0; i < 10; ++i) {
   bitcoinKeys.push(coinKey.createRandom())
 }
 
-var CoinKey = require()
-var ci = require()
+var CoinKey = require('coinkey')
+var ci = require('coininfo')
 
 var namecoins = []
 for (var i = 0; i < 10; ++i) {
@@ -21,11 +20,11 @@ for (var i = 0; i < 10; ++i) {
 
 var CoinKey = require('coinkey')
 var ci = require('coininfo')
-var ck = CoinKey.fromWif('xxx',)
-console.log()
-console.log()
-console.log()
-console.log()
+var ck = CoinKey.fromWif('xxx')
+console.log(ck.privateKey.toString('hex'))
+console.log(ck.publicAddress)
+console.log(ck.compressed)
+console.log(ck.versions.public === ci('DOGE').versions.public)
 
 
 var CoinKey = require('coinkey')
@@ -49,7 +48,7 @@ var CoinKey = require('coinkey')
 
 var privateKeyHex = "xxx"
 
-var key = new CoinKey()
+var key = new CoinKey(new Buffer(privateKeyHex, 'hex'))
 key.compressed = false
 console.log(key.privateWif)
 
@@ -73,13 +72,13 @@ var CoinKey = require('coinkey')
 
 var privateKeyHex = "xxx"
 
-var key = new CoinKey(new Buffer(privatKeyHex, 'hex'), {})
+var key = new CoinKey(new Buffer(privatKeyHex, 'hex'), {private: 0xB0, public: 0x30})
 console.log(key.toString())
 
 var ck = CoinKey.fromWif('xxx')
-console.log()
-console.log()
-console.log()
+console.log(ck.compressed)
+console.log(CoinKey(ck.privateKey.toString('hex'))
+console.log(key.toString())
 ```
 
 ```sh
